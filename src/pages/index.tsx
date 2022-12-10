@@ -1,20 +1,38 @@
-import { styled } from "../styles"; 
+import Image from "next/image";
+import { HomeContainer, Product } from "../styles/pages/home";
 
-const Button  = styled('button', {
-  backgroundColor: '$green300',
-  borderRadius: '9999px',
-  fontSize: '13px',
-  padding: '10px 15px',
-  '&:hover': {
-    backgroundColor: 'lightgray',
-  },
-}) 
+import shirt1 from "../assets/Shirt/Camisa-Maratona 1.png";
+import shirt2 from "../assets/Shirt/IgniteLab-T-shirt 1.png";
+import shirt3 from "../assets/Shirt/Igniter-abord-2-t-shirt 1.png";
 
 export default function Home() {
   return (
-    <div>
-      <h1>Hello world</h1>
-      <Button>Enviar</Button>
-    </div>
+    <HomeContainer>
+      <Product>
+        <Image
+          src={shirt1.src}
+          width={shirt1.width}
+          height={shirt1.height}
+          alt="product"
+        />
+        <footer>
+          <strong>Camiseta 1</strong>
+          <span>R$ 79,90</span>
+        </footer>
+      </Product>
+
+      <Product>
+        <Image
+          src={shirt2.src}
+          width={shirt2.width}
+          height={shirt2.height}
+          alt="product"
+        />
+        <footer>
+          <strong>Camiseta 2</strong>
+          <span>R$ 79,90</span>
+        </footer>
+      </Product>
+    </HomeContainer>
   );
 }
