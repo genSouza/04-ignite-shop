@@ -11,14 +11,12 @@ interface HomeProps {
   products: {
     id: string;
     name: string;
-    description: string;
     imageUrl: string;
-    price: number;
+    price: string;
   }[];
 }
 
 export default function Home(props: HomeProps) {
-  console.log("🚀 ~ file: index.tsx:23 ~ Home ~ props", props);
   const [sliderRef] = useKeenSlider({
     slides: {
       perView: 3,
@@ -62,7 +60,6 @@ export const getStaticProps: GetStaticProps = async () => {
     return {
       id: product.id,
       name: product.name,
-      description: product.description,
       imageUrl: product.images[0],
       price: new Intl.NumberFormat("pt-BR", {
         style: "currency",
