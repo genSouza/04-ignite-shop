@@ -1,5 +1,6 @@
 import axios from "axios";
 import { GetStaticPaths, GetStaticProps } from "next";
+import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -54,27 +55,32 @@ export default function Product(props: ProductProps) {
   }
 
   return (
-    <ProductContainer>
-      <ImageContainer>
-        <Image
-          src={props.product.imageUrl}
-          width={520}
-          height={480}
-          alt="product"
-        />
-      </ImageContainer>
-      <ProductDetails>
-        <h1>{props.product.name}</h1>
-        <span>{props.product.price}</span>
-        <p>{props.product.description}</p>
-        <button
-          onClick={handleBuyProduct}
-          disabled={isCreatingCheckoutSession}
-        >
-          Comprar agora
-        </button>
-      </ProductDetails>
-    </ProductContainer>
+    <>
+      <Head>
+        <title>{props.product.name} | Ignite Shop</title>
+      </Head>
+      <ProductContainer>
+        <ImageContainer>
+          <Image
+            src={props.product.imageUrl}
+            width={520}
+            height={480}
+            alt="product"
+          />
+        </ImageContainer>
+        <ProductDetails>
+          <h1>{props.product.name}</h1>
+          <span>{props.product.price}</span>
+          <p>{props.product.description}</p>
+          <button
+            onClick={handleBuyProduct}
+            disabled={isCreatingCheckoutSession}
+          >
+            Comprar agora
+          </button>
+        </ProductDetails>
+      </ProductContainer>
+    </>
   );
 }
 
