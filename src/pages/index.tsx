@@ -26,7 +26,7 @@ export default function Home(props: HomeProps) {
 
   const productList = props.products.map((product) => {
     return (
-      <Link href={`/product/${product.id}`} key={product.id}>
+      <Link href={`/product/${product.id}`} key={product.id} prefetch={false}>
         <Product className="keen-slider__slide">
           <Image
             src={product.imageUrl}
